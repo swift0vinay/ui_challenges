@@ -59,8 +59,10 @@ class _BulbChallengeState extends State<BulbChallenge> {
             Positioned(
               top: 0,
               right: h * 0.125,
-              child: Container(
-                height: h * 0.70,
+              child: AnimatedContainer(
+                height: rs ? h * 0.70 : h * 0.50,
+                duration: Duration(milliseconds: 500),
+                curve: Curves.easeInBack,
                 width: 1,
                 color: Colors.white,
               ),
