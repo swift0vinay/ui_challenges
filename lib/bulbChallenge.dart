@@ -13,9 +13,6 @@ class _BulbChallengeState extends State<BulbChallenge> {
     double w = MediaQuery.of(context).size.width;
     double top1 = (h - (h * 0.1)) * 0.5;
     double top2 = (h - (h * 0.1)) * 0.75;
-    if (w < h) {
-      h = w;
-    }
     return Scaffold(
       body: AnimatedContainer(
         duration: Duration(milliseconds: 500),
@@ -60,7 +57,7 @@ class _BulbChallengeState extends State<BulbChallenge> {
               top: 0,
               right: h * 0.125,
               child: AnimatedContainer(
-                height: rs ? h * 0.70 : h * 0.50,
+                height: rs ? h * 0.70 : h * 0.48,
                 duration: Duration(milliseconds: 500),
                 curve: Curves.easeInBack,
                 width: 1,
@@ -72,16 +69,14 @@ class _BulbChallengeState extends State<BulbChallenge> {
               top: (h - h * 0.2) * 0.5,
               child: SizedBox(
                 width: w * 0.5,
-                height: h * 0.2,
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    rs
-                        ? "TAP THE SWITCH TO TURN ON THE LIGHTS ."
-                        : "TAP THE SWITCH TO TURN OFF THE LIGHTS .",
-                    style: TextStyle(
-                        color: rs ? Colors.white : Colors.black, fontSize: 50),
-                  ),
+                height: h,
+                child: Text(
+                  rs
+                      ? "TAP THE SWITCH TO TURN ON THE LIGHTS ."
+                      : "TAP THE SWITCH TO TURN OFF THE LIGHTS .",
+                  style: TextStyle(
+                      color: rs ? Colors.white : Colors.black,
+                      fontSize: h < w ? 50 : 20),
                 ),
               ),
             ),
